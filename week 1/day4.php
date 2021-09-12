@@ -105,13 +105,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
       $final_file = rand(0,1000000) . "_" . $file ;
       $destination = "img/" . $final_file ;
       move_uploaded_file($_FILES["prof_img"]["tmp_name"],$destination);
-      setcookie("name",$_POST["name"],Time()+3600*24,"/");
-      setcookie("email",$_POST["email"],Time()+3600*24,"/");
-      setcookie("adress",$_POST["adress"],Time()+3600*24,"/");
-      setcookie("gender",$_POST["gender"],Time()+3600*24,"/");
-      setcookie("linkedin",$_POST["linkedin"],Time()+3600*24,"/");
-      setcookie("img",$final_file,Time()+3600*24,"/");
-      header("location:day4_profile.php");
+      $arr=array($_POST["name"],$_POST["email"],$_POST["adress"],$_POST["gender"]);
+      // setcookie("name",$_POST["name"],Time()+3600*24,"/");
+      // setcookie("email",$_POST["email"],Time()+3600*24,"/");
+      // setcookie("adress",$_POST["adress"],Time()+3600*24,"/");
+      // setcookie("gender",$_POST["gender"],Time()+3600*24,"/");
+      // setcookie("linkedin",$_POST["linkedin"],Time()+3600*24,"/");
+      // $string_data = implode(",",$arr);
+      // setcookie("data",$string_data,Time()+3600*24,"/");
+
+      $data_base = fopen("users.txt","a") or die("the file is not found");
+      $data = $name . " = " . $email . " = " . $adress . " = " . $gender . " = " . $linkedin . " = " . $final_file . " = " . "**";
+      fwrite($data_base,$data);
+      fclose($data_base);
+            header("location:day4_profile.php");
+
   }else{
       echo "<div class=\"container\"><div class=\"alert alert-danger\" role=\"alert\">
       " . $extention . ". غير مسموح باستخدام امتداد 
