@@ -1,0 +1,30 @@
+body{
+    background-color: #f4f6f9;
+}
+
+.table_icon{
+    color:#eee;
+    display: block;    
+    padding: 5px 20px;
+    margin-right: 0 !important;
+}
+
+.article{
+    border:1px solid #aaa;
+    border-radius: 10px;
+}
+.article img{
+    width: 200px;
+    display: block;
+    margin: auto;
+}
+.article h3{
+    font-size: 25px;
+    text-align: center;
+
+}
+.article p{
+    text-align: center;
+    font-size: 20px;
+    color:#333
+}
